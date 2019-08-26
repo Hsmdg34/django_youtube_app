@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Wixtube</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Ana Sayfa <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Abonelikler</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/articles/dashboard">Kanalım</a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" href="#">Trendler</a>
+      </li>
+    </ul>
+    
+    <form class="form-inline my-2 my-lg-0 navbar-nav mr-auto">
+      <input class="form-control mr-sm-2"  name="keyword"type="search" placeholder="Ara" aria-label="Search">
+      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Ara</button>
+    </form>
+    <ul class="navbar-nav ml-auto">
+     {% if request.user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="/user/logout">{{user.username}}</a>
+      </li>
+     {% else %} 
+     <li class="nav-item">
+        <a class="nav-link" href="/user/login">Giriş Yap</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="/user/register">Kayıt Ol</a>
+      </li>
+     {% endif %}
+     
+        
+      
+    </ul>
+  </div>
+
+</nav>

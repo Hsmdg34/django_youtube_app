@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+<h3>Kanal'ın</h3>
+<hr>
+<a class = "btn btn-danger" href = "/articles/addarticle">Video Yükle</a>
+<hr>
+{% if articles %}
+    {% for article in articles %}
+        {% if article.video %}
+            <video style="with:250px; height:150px;" >
+            <source  src="{{article.video.url}}" type="video/mp4">
+            <source src="{{article.video.url}}" type="video/webm">
+            </video>
+        {% endif %}
+    
+    {% endfor %}
+{% else %}
+    <div style="margin-top:20px;" class="alert alert-danger">Henüz bir video yüklemediniz.</div>
+{% endif %}
+
+{% endblock body %}
